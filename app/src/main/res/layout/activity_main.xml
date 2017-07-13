@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="cn.primedu.m.baseandroid.MainActivity">
+
+    <!--  <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Hello World!"/>-->
+
+    <!-- <com.facebook.drawee.view.SimpleDraweeView
+         android:id="@+id/user_adv"
+         android:layout_width="@dimen/q200"
+         android:layout_height="@dimen/q200"
+         app:placeholderImageScaleType="fitXY"
+        />
+ -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refersh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

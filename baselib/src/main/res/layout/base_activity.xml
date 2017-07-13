@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <cn.primedu.m.baselib.util.CstTopBanner
+        android:id="@+id/csttopbanner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/q150">
+    </cn.primedu.m.baselib.util.CstTopBanner>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/csttopbanner">
+
+        <FrameLayout
+            android:id="@+id/base_activity_replace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/csttopbanner"></FrameLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>
