@@ -14,35 +14,45 @@ import java.util.TimerTask;
  */
 public class SwToast {
     private static Context mContext;
-
+    private static Toast toast;
     public static void Init(Context context) {
         mContext = context;
     }
 
 
     public synchronized static void show(String content) {
-        Toast.makeText(mContext, content, Toast.LENGTH_SHORT).show();
+        if (toast == null) {
+            toast= Toast.makeText(mContext, content, Toast.LENGTH_SHORT);
+        }else {
+            toast.setText(content);
+        }
+        toast.show();
     }
 
     public synchronized static void showLong(String content) {
 
-        Toast.makeText(mContext, content, Toast.LENGTH_LONG).show();
+        if (toast == null) {
+            toast= Toast.makeText(mContext, content, Toast.LENGTH_LONG);
+        }else {
+            toast.setText(content);
+        }
+        toast.show();
     }
 
-        public static  void showMyToast(final Toast toast, final int cnt) {
-            final Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    toast.show();
-                }
-            }, 0);
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    toast.cancel();
-                    timer.cancel();
-                }
-            }, cnt );
-        }
+    public static  void showMyToast(final Toast toast, final int cnt) {
+        final Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.show();
+            }
+        }, 0);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.cancel();
+                timer.cancel();
+            }
+        }, cnt );
+    }
 }

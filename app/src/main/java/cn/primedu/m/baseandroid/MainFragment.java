@@ -90,9 +90,8 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
                         nt = testBeen.getNt();
                         LogUtils.d(nt);
                         mBaseQuickAdapter.loadMoreComplete();
-//                        mBaseQuickAdapter.setEnableLoadMore(true);
-//            .    SwToast.show(testBeen.getCount());
-//                testBeen.getCount()
+                        //数据全部加载完毕
+//                        mBaseQuickAdapter.loadMoreEnd();
                         mBaseQuickAdapter.addData(data);
                     }
                 });
@@ -102,6 +101,13 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
 //        mSimpleDraweeView = findViewById(R.id.user_adv);
 //        mSimpleDraweeView.setImageURI("http://orxzn1n7o.bkt.clouddn.com/%E5%85%AB%E5%AD%97%E8%88%9E.jpg");
 //        FrescoUtils.loadUrl("http://orxzn1n7o.bkt.clouddn.com/%E5%85%AB%E5%AD%97%E8%88%9E.jpg", mSimpleDraweeView);
+  /*      ExecutorService executorService= Executors.newCachedThreadPool();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });*/
     }
 
 

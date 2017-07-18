@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context="cn.primedu.m.baseandroid.MainActivity">
 
     <!--  <TextView
@@ -20,6 +21,11 @@
          app:placeholderImageScaleType="fitXY"
         />
  -->
+
+    <ImageView
+        android:layout_width="210px"
+        android:layout_height="120px"
+        android:src="@drawable/avatar_130"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refersh"
         android:layout_width="match_parent"
