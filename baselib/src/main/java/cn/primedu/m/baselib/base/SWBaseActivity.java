@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
@@ -12,8 +13,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.List;
 import java.util.UUID;
@@ -28,7 +27,7 @@ import cn.primedu.m.baselib.util.CstTopBanner;
  * 邮箱：sunwentao@priemdu.cn
  * 时间: 2017/4/12
  */
-public abstract class SWBaseActivity extends AutoLayoutActivity {
+public abstract class SWBaseActivity extends FragmentActivity {
     private SparseArray<View> mViews;
     private FragmentManager mFragmentManager;
     private Bundle resultBundle;
