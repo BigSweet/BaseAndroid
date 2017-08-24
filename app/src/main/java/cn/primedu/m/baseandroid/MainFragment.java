@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,14 +71,16 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
             protected void convert(BaseViewHolder helper, ListBean item) {
                 NoNullUtils.setText((TextView) helper.getView(R.id.tv_test)
                         , item.getUser().getName());
+                SimpleDraweeView simpleDraweeView = helper.getView(R.id.main_course_item_siv);
+//                simpleDraweeView.setImageURI();
             }
 
         });
         mBaseQuickAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-        View view = View.inflate(getActivity(), R.layout.test_head, null);
-        View view2 = View.inflate(getActivity(), R.layout.test_head, null);
-        mBaseQuickAdapter.addHeaderView(view);
-        mBaseQuickAdapter.addFooterView(view2);
+//        View view = View.inflate(getActivity(), R.layout.test_head, null);
+//        View view2 = View.inflate(getActivity(), R.layout.test_head, null);
+//        mBaseQuickAdapter.addHeaderView(view);
+//        mBaseQuickAdapter.addFooterView(view2);
         mBaseQuickAdapter.setEnableLoadMore(true);
         mBaseQuickAdapter.setLoadMoreView(new CustomLoadMoreView());
         mBaseQuickAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
