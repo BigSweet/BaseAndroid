@@ -3,6 +3,7 @@ package cn.primedu.m.baselib.retrofit;
 import android.widget.Toast;
 
 import cn.primedu.m.baselib.MyApplication;
+import cn.primedu.m.baselib.base.SwToast;
 import cn.primedu.m.baselib.util.LogUtils;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -42,6 +43,6 @@ public abstract class BaseObserver<T> implements Observer<BaseData<T>> {
 
     //错误信息统一处理
     void onHandleError(int code, String message) {
-        Toast.makeText(MyApplication.getmContext(), message, Toast.LENGTH_LONG).show();
+        SwToast.show(message);
     }
 }

@@ -25,8 +25,7 @@ import cn.primedu.m.baselib.R;
 
 
 /**
- * @author Qianjujun
- * @time 2016/3/29
+ *
  */
 public class CircleImageView extends ImageView {
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;

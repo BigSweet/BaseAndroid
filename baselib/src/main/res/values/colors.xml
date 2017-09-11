@@ -41,7 +41,7 @@
     <color name="color_text_gray">#a8a8a8</color>
     <color name="sentence_card_bg">#B1F3E4</color>
     <color name="music_card_bg">#FCAEA0</color>
-
+    <color name="view_line">#FFDEDEDE</color>
     <color name ="background">#000000</color>
     <color name="content_color">#666666</color>
 

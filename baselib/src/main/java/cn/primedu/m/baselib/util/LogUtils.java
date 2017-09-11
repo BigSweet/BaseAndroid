@@ -6,8 +6,6 @@ import android.util.Log;
 /**
  * 日志控制
  *
- * 作者：xjzhao
- * 时间：2014-07-16 下午2:58
  */
 public class LogUtils {
 
