@@ -19,7 +19,6 @@ import cn.primedu.m.baselib.base.SWBaseFragment;
 import cn.primedu.m.baselib.base.SwToast;
 import cn.primedu.m.baselib.base.UrlAddress;
 import cn.primedu.m.baselib.model.ListBean;
-import cn.primedu.m.baselib.model.TestBean;
 import cn.primedu.m.baselib.retrofit.BaseObserver;
 import cn.primedu.m.baselib.retrofit.RetrofitManager;
 import cn.primedu.m.baselib.util.CustomLoadMoreView;

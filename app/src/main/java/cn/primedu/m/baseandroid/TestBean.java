@@ -1,6 +1,8 @@
-package cn.primedu.m.baselib.model;
+package cn.primedu.m.baseandroid;
 
 import java.util.List;
+
+import cn.primedu.m.baselib.model.ListBean;
 
 /**
  * 介绍：这里写介绍
