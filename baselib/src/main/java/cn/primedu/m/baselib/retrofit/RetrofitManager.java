@@ -8,6 +8,9 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import cn.primedu.m.baselib.MyApplication;
@@ -115,10 +118,21 @@ public class RetrofitManager {
         };
         return headerInterceptor;
     }
+    Map<String, String> paramsMap = new HashMap<>();
 
+
+    //需要添加参数就使用此方法
+    public RetrofitManager putParams(String key, String value) {
+        paramsMap.put(key, value);
+        return this;
+    }
     //改名字,get名字
-    public Observable getTest(String nt) {
-        return mApiService.getToken(nt).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    public Observable getTest(String url,Type type) {
+        return mApiService.get(url,paramsMap).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).map(new ApiResultFunc(type));
     }
 
+    //测试类
+    public Observable post(String url,Type type) {
+        return mApiService.postParams(url, paramsMap).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).map(new ApiResultFunc(type));
+    }
 }

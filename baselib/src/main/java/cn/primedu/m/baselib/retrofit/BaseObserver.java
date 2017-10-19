@@ -1,8 +1,5 @@
 package cn.primedu.m.baselib.retrofit;
 
-import android.widget.Toast;
-
-import cn.primedu.m.baselib.MyApplication;
 import cn.primedu.m.baselib.base.SwToast;
 import cn.primedu.m.baselib.util.LogUtils;
 import io.reactivex.Observer;
@@ -11,7 +8,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BaseObserver<T> implements Observer<BaseData<T>> {
     //mDisposable.dispose();开光，用来切断连接
     private Disposable mDisposable;
-    private final int SUCCESS_CODE = 0;
+    private final int SUCCESS_CODE = -1;
 
     @Override
     public void onSubscribe(Disposable d) {

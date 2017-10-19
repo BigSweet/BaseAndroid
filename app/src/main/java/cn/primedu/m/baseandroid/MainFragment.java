@@ -17,6 +17,7 @@ import java.util.List;
 
 import cn.primedu.m.baselib.base.SWBaseFragment;
 import cn.primedu.m.baselib.base.SwToast;
+import cn.primedu.m.baselib.base.UrlAddress;
 import cn.primedu.m.baselib.model.ListBean;
 import cn.primedu.m.baselib.model.TestBean;
 import cn.primedu.m.baselib.retrofit.BaseObserver;
@@ -86,7 +87,7 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
         mBaseQuickAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                RetrofitManager.getInstance().getTest(nt).subscribe(new BaseObserver<TestBean>() {
+                RetrofitManager.getInstance().putParams("nt", nt).getTest(UrlAddress.getTest(),TestBean.class).subscribe(new BaseObserver<TestBean>() {
                     @Override
                     public void onHandleSuccess(TestBean testBeen) {
                         data = testBeen.getlist();
@@ -115,18 +116,14 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
 
 
     public void loadData() {
-        RetrofitManager.getInstance().getTest("").subscribe(new BaseObserver<TestBean>() {
+        RetrofitManager.getInstance().putParams("nt", "").getTest(UrlAddress.getTest(),TestBean.class).subscribe(new BaseObserver<TestBean>() {
             @Override
             public void onHandleSuccess(TestBean testBeen) {
                 data = testBeen.getlist();
                 nt = testBeen.getNt();
                 LogUtils.d(nt);
-//            .    SwToast.show(testBeen.getCount());
-//                testBeen.getCount()
                 mBaseQuickAdapter.addData(data);
             }
-
-
         });
     }
 
@@ -137,7 +134,7 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
 
     @Override
     public void onRefresh() {
-        RetrofitManager.getInstance().getTest("").subscribe(new BaseObserver<TestBean>() {
+        RetrofitManager.getInstance().putParams("nt", "").getTest(UrlAddress.getTest(),TestBean.class).subscribe(new BaseObserver<TestBean>() {
             @Override
             public void onHandleSuccess(TestBean testBeen) {
                 data = testBeen.getlist();
@@ -146,8 +143,7 @@ public class MainFragment extends SWBaseFragment implements SwipeRefreshLayout.O
                 mBaseQuickAdapter.replaceData(data);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
-
-
         });
+
     }
 }

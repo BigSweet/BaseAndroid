@@ -19,6 +19,7 @@ import java.util.UUID;
 
 import cn.primedu.m.baselib.R;
 import cn.primedu.m.baselib.util.CstTopBanner;
+import cn.primedu.m.baselib.util.LogUtils;
 
 
 /**
@@ -143,7 +144,7 @@ public abstract class SWBaseActivity extends FragmentActivity {
         Toast.makeText(this, "再按一次退出", Toast.LENGTH_LONG).show();
     }
 
-/*    @Override
+    @Override
     public void onBackPressed() {
         if (isCanBackToast()) {
             if (System.currentTimeMillis() - exitTime > 2000) {
@@ -160,21 +161,21 @@ public abstract class SWBaseActivity extends FragmentActivity {
             }
             superOnBackPressed();
         }
-    }*/
+    }
 
-    /*    @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-     *//*       if (mFragmentManager != null) {
-            List<Fragment> fragments = mFragmentManager.getFragments();
-            if (fragments != null && fragments.size() > 0) {
-//                for (Fragment fragment : fragments) {
-//                    if (fragment != null && fragment.isAdded() && fragment.isVisible() && fragment.getUserVisibleHint()) {
-                fragments.onActivityResult(requestCode, resultCode, data);
-//                    }
-//                }
+    public void superOnBackPressed() {
+        LogUtils.d("BaseActivity", "superOnBackPressed:" + resultCode + "---" + mFragmentManager.getBackStackEntryCount());
+        if (mFragmentManager.getBackStackEntryCount() == 0 && resultCode != RESULT_CANCELED) {
+            Intent data = null;
+            if (resultBundle != null) {
+                data = new Intent();
+                data.putExtras(resultBundle);
             }
-        }*//*
-    }*/
+            setResult(resultCode, data);
+        }
+        super.onBackPressed();
+    }
+
     int requestcode;
 
 
