@@ -17,6 +17,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+
+            //是否需要模块化buy模块 其他的类似
+            if (isBuildModuleBuy.toBoolean()) {
+                java.srcDirs += ['src/buy/java/']
+            }
+
+            res.srcDirs = ['src/main/res']
+
+            //是否需要模块化buy模块 其他的类似
+            if (isBuildModuleBuy.toBoolean()) {
+                res.srcDirs += ['src/buy/res/']
+            }
+
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
